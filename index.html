@@ -56,12 +56,21 @@
 </a>
 <nav class="navmenu" id="navmenu">
 <ul>
-	<li><a class="nav-link scrollto" href="#hero">Inicio</a></li>
-	<li><a class="nav-link scrollto" href="#services">Servicios</a></li>
-	<li><a class="nav-link scrollto" href="#portfolio">Casos de Éxito</a></li>
-	<li><a class="nav-link scrollto" href="#departments">Directorio Médico</a></li>
-	<li><a class="nav-link scrollto" href="#blog">Blog</a></li>
-	<li><a class="nav-link scrollto" href="#contact">Contacto</a></li>
+  <li><a class="nav-link scrollto active" href="#hero">Inicio</a></li>
+  <li><a class="nav-link scrollto" href="#about">Nuestra Historia</a></li>
+  <li><a class="nav-link scrollto" href="#stats">Impacto</a></li>
+  <li><a class="nav-link scrollto" href="#services">Servicios</a></li>
+  <li><a class="nav-link scrollto" href="#portfolio">Casos de Éxito</a></li>
+  <li><a class="nav-link scrollto" href="#departments">Directorio Médico</a></li>
+  <li class="dropdown">
+    <a href="#"><span>Más</span> <i class="bi bi-chevron-down"></i></a>
+    <ul>
+	  <li><a class="nav-link scrollto" href="#testimonials">Testimonios</a></li>
+	  <li><a class="nav-link scrollto" href="#appointment">Agendar Cita</a></li>
+      <li><a class="nav-link scrollto" href="#faq">Preguntas Frecuentes</a></li>
+      <li><a class="nav-link scrollto" href="#contact">Contacto</a></li>
+    </ul>
+  </li>
 </ul>
 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
 </nav>
@@ -363,59 +372,7 @@
 </section>
 
 
-<!-- Appointment Section -->
-<section class="appointment section" id="appointment">
-<!-- Section Title -->
-<div class="container section-title" data-aos="fade-up">
-<h2>Appointment</h2>
-<p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-</div><!-- End Section Title -->
-<div class="container" data-aos="fade-up" data-aos-delay="100">
-<form action="forms/appointment.php" class="php-email-form" method="post" role="form">
-<div class="row">
-<div class="col-md-4 form-group">
-<input class="form-control" id="name" name="name" placeholder="Your Name" required="" type="text"/>
-</div>
-<div class="col-md-4 form-group mt-3 mt-md-0">
-<input class="form-control" id="email" name="email" placeholder="Your Email" required="" type="email"/>
-</div>
-<div class="col-md-4 form-group mt-3 mt-md-0">
-<input class="form-control" id="phone" name="phone" placeholder="Your Phone" required="" type="tel"/>
-</div>
-</div>
-<div class="row">
-<div class="col-md-4 form-group mt-3">
-<input class="form-control datepicker" id="date" name="date" placeholder="Appointment Date" required="" type="datetime-local"/>
-</div>
-<div class="col-md-4 form-group mt-3">
-<select class="form-select" id="department" name="department" required="">
-<option value="">Select Department</option>
-<option value="Department 1">Department 1</option>
-<option value="Department 2">Department 2</option>
-<option value="Department 3">Department 3</option>
-</select>
-</div>
-<div class="col-md-4 form-group mt-3">
-<select class="form-select" id="doctor" name="doctor" required="">
-<option value="">Select Doctor</option>
-<option value="Doctor 1">Doctor 1</option>
-<option value="Doctor 2">Doctor 2</option>
-<option value="Doctor 3">Doctor 3</option>
-</select>
-</div>
-</div>
-<div class="form-group mt-3">
-<textarea class="form-control" name="message" placeholder="Message (Optional)" rows="5"></textarea>
-</div>
-<div class="mt-3">
-<div class="loading">Loading</div>
-<div class="error-message"></div>
-<div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
-<div class="text-center"><button type="submit">Make an Appointment</button></div>
-</div>
-</form>
-</div>
-</section><!-- /Appointment Section -->
+
 
 <!-- Departments Section -->
 
@@ -649,146 +606,6 @@
   </div>
 </section>
 <!-- /Departments Section -->
-
-<!-- Doctors Section --
-<section class="doctors section" id="doctors">
-<!-- Section Title --
-<div class="container section-title" data-aos="fade-up">
-<h2>Doctors</h2>
-<p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-</div><!-- End Section Title --
-<div class="container">
-<div class="row gy-4">
-<div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-<div class="team-member d-flex align-items-start">
-<div class="pic"><img alt="" class="img-fluid" src="assets/img/doctors/doctors-1.jpg"/></div>
-<div class="member-info">
-<h4>Walter White</h4>
-<span>Chief Medical Officer</span>
-<p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
-<div class="social">
-<a href=""><i class="bi bi-twitter-x"></i></a>
-<a href=""><i class="bi bi-facebook"></i></a>
-<a href=""><i class="bi bi-instagram"></i></a>
-<a href=""> <i class="bi bi-linkedin"></i> </a>
-</div>
-</div>
-</div>
-</div><!-- End Team Member --
-<div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-<div class="team-member d-flex align-items-start">
-<div class="pic"><img alt="" class="img-fluid" src="assets/img/doctors/doctors-2.jpg"/></div>
-<div class="member-info">
-<h4>Sarah Jhonson</h4>
-<span>Anesthesiologist</span>
-<p>Aut maiores voluptates amet et quis praesentium qui senda para</p>
-<div class="social">
-<a href=""><i class="bi bi-twitter-x"></i></a>
-<a href=""><i class="bi bi-facebook"></i></a>
-<a href=""><i class="bi bi-instagram"></i></a>
-<a href=""> <i class="bi bi-linkedin"></i> </a>
-</div>
-</div>
-</div>
-</div><!-- End Team Member --
-<div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-<div class="team-member d-flex align-items-start">
-<div class="pic"><img alt="" class="img-fluid" src="assets/img/doctors/doctors-3.jpg"/></div>
-<div class="member-info">
-<h4>William Anderson</h4>
-<span>Cardiology</span>
-<p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
-<div class="social">
-<a href=""><i class="bi bi-twitter-x"></i></a>
-<a href=""><i class="bi bi-facebook"></i></a>
-<a href=""><i class="bi bi-instagram"></i></a>
-<a href=""> <i class="bi bi-linkedin"></i> </a>
-</div>
-</div>
-</div>
-</div><!-- End Team Member --
-<div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-<div class="team-member d-flex align-items-start">
-<div class="pic"><img alt="" class="img-fluid" src="assets/img/doctors/doctors-4.jpg"/></div>
-<div class="member-info">
-<h4>Amanda Jepson</h4>
-<span>Neurosurgeon</span>
-<p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
-<div class="social">
-<a href=""><i class="bi bi-twitter-x"></i></a>
-<a href=""><i class="bi bi-facebook"></i></a>
-<a href=""><i class="bi bi-instagram"></i></a>
-<a href=""> <i class="bi bi-linkedin"></i> </a>
-</div>
-</div>
-</div>
-</div><!-- End Team Member --
-</div>
-</div>
-</section>
-<!-- /Doctors Section -->
-
-<!-- Faq Section -->
-<section class="faq section light-background" id="faq">
-<!-- Section Title -->
-<div class="container section-title" data-aos="fade-up">
-<h2>Frequently Asked Questions</h2>
-<p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-</div><!-- End Section Title -->
-<div class="container">
-<div class="row justify-content-center">
-<div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
-<div class="faq-container">
-<div class="faq-item faq-active">
-<h3>Non consectetur a erat nam at lectus urna duis?</h3>
-<div class="faq-content">
-<p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.</p>
-</div>
-<i class="faq-toggle bi bi-chevron-right"></i>
-</div><!-- End Faq item-->
-<div class="faq-item">
-<h3>Feugiat scelerisque varius morbi enim nunc faucibus?</h3>
-<div class="faq-content">
-<p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
-</div>
-<i class="faq-toggle bi bi-chevron-right"></i>
-</div><!-- End Faq item-->
-<div class="faq-item">
-<h3>Dolor sit amet consectetur adipiscing elit pellentesque?</h3>
-<div class="faq-content">
-<p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis</p>
-</div>
-<i class="faq-toggle bi bi-chevron-right"></i>
-</div><!-- End Faq item-->
-<div class="faq-item">
-<h3>Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</h3>
-<div class="faq-content">
-<p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
-</div>
-<i class="faq-toggle bi bi-chevron-right"></i>
-</div><!-- End Faq item-->
-<div class="faq-item">
-<h3>Tempus quam pellentesque nec nam aliquam sem et tortor?</h3>
-<div class="faq-content">
-<p>Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in</p>
-</div>
-<i class="faq-toggle bi bi-chevron-right"></i>
-</div><!-- End Faq item-->
-<div class="faq-item">
-<h3>Perspiciatis quod quo quos nulla quo illum ullam?</h3>
-<div class="faq-content">
-<p>Enim ea facilis quaerat voluptas quidem et dolorem. Quis et consequatur non sed in suscipit sequi. Distinctio ipsam dolore et.</p>
-</div>
-<i class="faq-toggle bi bi-chevron-right"></i>
-</div><!-- End Faq item-->
-</div>
-</div><!-- End Faq Column-->
-</div>
-</div>
-</section>
-<!-- /Faq Section -->
-
-<!-- Testimonials Section -->
 
 <!-- Testimonials Section -->
 <section class="testimonials section" id="testimonials">
@@ -1045,18 +862,234 @@
 
     </div>
   </div>
-</section><!-- /Testimonials Section -->
-
+</section>
 
 <!-- /Testimonials Section -->
 
-<!-- Gallery Section -->
-<section class="gallery section" id="gallery">
+<!-- Appointment Section -->
+
+<section class="appointment section" id="appointment">
 <!-- Section Title -->
+<div class="container section-title" data-aos="fade-up">
+<h2>Appointment</h2>
+<p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+</div><!-- End Section Title -->
+<div class="container" data-aos="fade-up" data-aos-delay="100">
+<form action="forms/appointment.php" class="php-email-form" method="post" role="form">
+<div class="row">
+<div class="col-md-4 form-group">
+<input class="form-control" id="name" name="name" placeholder="Your Name" required="" type="text"/>
+</div>
+<div class="col-md-4 form-group mt-3 mt-md-0">
+<input class="form-control" id="email" name="email" placeholder="Your Email" required="" type="email"/>
+</div>
+<div class="col-md-4 form-group mt-3 mt-md-0">
+<input class="form-control" id="phone" name="phone" placeholder="Your Phone" required="" type="tel"/>
+</div>
+</div>
+<div class="row">
+<div class="col-md-4 form-group mt-3">
+<input class="form-control datepicker" id="date" name="date" placeholder="Appointment Date" required="" type="datetime-local"/>
+</div>
+<div class="col-md-4 form-group mt-3">
+<select class="form-select" id="department" name="department" required="">
+<option value="">Select Department</option>
+<option value="Department 1">Department 1</option>
+<option value="Department 2">Department 2</option>
+<option value="Department 3">Department 3</option>
+</select>
+</div>
+<div class="col-md-4 form-group mt-3">
+<select class="form-select" id="doctor" name="doctor" required="">
+<option value="">Select Doctor</option>
+<option value="Doctor 1">Doctor 1</option>
+<option value="Doctor 2">Doctor 2</option>
+<option value="Doctor 3">Doctor 3</option>
+</select>
+</div>
+</div>
+<div class="form-group mt-3">
+<textarea class="form-control" name="message" placeholder="Message (Optional)" rows="5"></textarea>
+</div>
+<div class="mt-3">
+<div class="loading">Loading</div>
+<div class="error-message"></div>
+<div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
+<div class="text-center"><button type="submit">Make an Appointment</button></div>
+</div>
+</form>
+</div>
+</section>
+
+<!-- /Appointment Section -->
+
+<!-- Doctors Section --
+<section class="doctors section" id="doctors">
+<!-- Section Title --
+<div class="container section-title" data-aos="fade-up">
+<h2>Doctors</h2>
+<p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+</div><!-- End Section Title --
+<div class="container">
+<div class="row gy-4">
+<div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+<div class="team-member d-flex align-items-start">
+<div class="pic"><img alt="" class="img-fluid" src="assets/img/doctors/doctors-1.jpg"/></div>
+<div class="member-info">
+<h4>Walter White</h4>
+<span>Chief Medical Officer</span>
+<p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
+<div class="social">
+<a href=""><i class="bi bi-twitter-x"></i></a>
+<a href=""><i class="bi bi-facebook"></i></a>
+<a href=""><i class="bi bi-instagram"></i></a>
+<a href=""> <i class="bi bi-linkedin"></i> </a>
+</div>
+</div>
+</div>
+</div><!-- End Team Member --
+<div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+<div class="team-member d-flex align-items-start">
+<div class="pic"><img alt="" class="img-fluid" src="assets/img/doctors/doctors-2.jpg"/></div>
+<div class="member-info">
+<h4>Sarah Jhonson</h4>
+<span>Anesthesiologist</span>
+<p>Aut maiores voluptates amet et quis praesentium qui senda para</p>
+<div class="social">
+<a href=""><i class="bi bi-twitter-x"></i></a>
+<a href=""><i class="bi bi-facebook"></i></a>
+<a href=""><i class="bi bi-instagram"></i></a>
+<a href=""> <i class="bi bi-linkedin"></i> </a>
+</div>
+</div>
+</div>
+</div><!-- End Team Member --
+<div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+<div class="team-member d-flex align-items-start">
+<div class="pic"><img alt="" class="img-fluid" src="assets/img/doctors/doctors-3.jpg"/></div>
+<div class="member-info">
+<h4>William Anderson</h4>
+<span>Cardiology</span>
+<p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
+<div class="social">
+<a href=""><i class="bi bi-twitter-x"></i></a>
+<a href=""><i class="bi bi-facebook"></i></a>
+<a href=""><i class="bi bi-instagram"></i></a>
+<a href=""> <i class="bi bi-linkedin"></i> </a>
+</div>
+</div>
+</div>
+</div><!-- End Team Member --
+<div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+<div class="team-member d-flex align-items-start">
+<div class="pic"><img alt="" class="img-fluid" src="assets/img/doctors/doctors-4.jpg"/></div>
+<div class="member-info">
+<h4>Amanda Jepson</h4>
+<span>Neurosurgeon</span>
+<p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
+<div class="social">
+<a href=""><i class="bi bi-twitter-x"></i></a>
+<a href=""><i class="bi bi-facebook"></i></a>
+<a href=""><i class="bi bi-instagram"></i></a>
+<a href=""> <i class="bi bi-linkedin"></i> </a>
+</div>
+</div>
+</div>
+</div><!-- End Team Member --
+</div>
+</div>
+</section>
+<!-- /Doctors Section -->
+
+<!-- Faq Section -->
+<section class="faq section light-background" id="faq">
+<!-- Section Title -->
+<div class="container section-title" data-aos="fade-up">
+<h2>Preguntas Frecuentes</h2>
+<p>Resolvemos tus dudas más comunes sobre cómo trabajamos en Flow Results.</p>
+</div><!-- End Section Title -->
+
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
+<div class="faq-container">
+<div class="faq-item faq-active">
+<h3>¿Qué tipo de médicos trabajan con Flow Results?</h3>
+<div class="faq-content">
+<p>Trabajamos con especialistas de todas la áreas pero actualmente estamos con especialidades como dermatología, ginecología, oftalmología, gastroenterología, ortopedia y más. Adaptamos nuestras estrategias a cada rama médica.</p>
+</div>
+<i class="faq-toggle bi bi-chevron-right"></i>
+</div>
+
+<!-- End Faq item-->
+
+<div class="faq-item">
+<h3>¿Ofrecen servicios para clínicas y no solo médicos individuales?</h3>
+<div class="faq-content">
+<p>¡Claro! Apoyamos tanto a clínicas pequeñas como a grupos médicos consolidados, ajustando campañas y herramientas de acuerdo con sus objetivos.</p>
+</div>
+<i class="faq-toggle bi bi-chevron-right"></i>
+</div>
+
+<!-- End Faq item-->
+
+
+<div class="faq-item">
+<h3>¿Qué resultados puedo esperar con sus campañas digitales?</h3>
+<div class="faq-content">
+<p>Mayor visibilidad digital, aumento en citas agendadas, crecimiento en redes sociales y posicionamiento de marca profesional.</p>
+</div>
+<i class="faq-toggle bi bi-chevron-right"></i>
+</div>
+
+<!-- End Faq item-->
+
+<div class="faq-item">
+<h3>¿Puedo contratar solo algunos servicios y no todo el paquete?</h3>
+<div class="faq-content">
+<p>Sí, nuestros servicios son personalizables. Puedes contratar solo lo que necesites: diseño web, campañas, branding, etc.</p>
+</div>
+<i class="faq-toggle bi bi-chevron-right"></i>
+</div>
+
+<!-- End Faq item-->
+
+<div class="faq-item">
+<h3>¿Qué tan involucrado debo estar en el proceso?</h3>
+<div class="faq-content">
+<p>Nos adaptamos a tu ritmo. Puedes revisar cada avance o delegarlo completamente a nuestro equipo.</p></p>
+</div>
+<i class="faq-toggle bi bi-chevron-right"></i>
+</div>
+
+<!-- End Faq item-->
+
+<div class="faq-item">
+<h3>¿Cómo empiezo a trabajar con ustedes?</h3>
+<div class="faq-content">
+<p>Sólo debes completar el formulario de contacto o agendar una cita estratégica. Nosotros te contactamos y damos los siguientes pasos.</p>
+</div>
+<i class="faq-toggle bi bi-chevron-right"></i>
+</div>
+
+<!-- End Faq item-->
+
+</div>
+</div><!-- End Faq Column-->
+</div>
+</div>
+</section>
+<!-- /Faq Section -->
+
+
+
+<!-- Gallery Section --
+<section class="gallery section" id="gallery">
+<!-- Section Title --
 <div class="container section-title" data-aos="fade-up">
 <h2>Gallery</h2>
 <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-</div><!-- End Section Title -->
+</div><!-- End Section Title --
 <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
 <div class="row g-0">
 <div class="col-lg-3 col-md-4">
@@ -1065,56 +1098,56 @@
 <img alt="" class="img-fluid" src="assets/img/gallery/gallery-1.jpg"/>
 </a>
 </div>
-</div><!-- End Gallery Item -->
+</div><!-- End Gallery Item --
 <div class="col-lg-3 col-md-4">
 <div class="gallery-item">
 <a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-2.jpg">
 <img alt="" class="img-fluid" src="assets/img/gallery/gallery-2.jpg"/>
 </a>
 </div>
-</div><!-- End Gallery Item -->
+</div><!-- End Gallery Item --
 <div class="col-lg-3 col-md-4">
 <div class="gallery-item">
 <a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-3.jpg">
 <img alt="" class="img-fluid" src="assets/img/gallery/gallery-3.jpg"/>
 </a>
 </div>
-</div><!-- End Gallery Item -->
+</div><!-- End Gallery Item --
 <div class="col-lg-3 col-md-4">
 <div class="gallery-item">
 <a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-4.jpg">
 <img alt="" class="img-fluid" src="assets/img/gallery/gallery-4.jpg"/>
 </a>
 </div>
-</div><!-- End Gallery Item -->
+</div><!-- End Gallery Item --
 <div class="col-lg-3 col-md-4">
 <div class="gallery-item">
 <a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-5.jpg">
 <img alt="" class="img-fluid" src="assets/img/gallery/gallery-5.jpg"/>
 </a>
 </div>
-</div><!-- End Gallery Item -->
+</div><!-- End Gallery Item --
 <div class="col-lg-3 col-md-4">
 <div class="gallery-item">
 <a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-6.jpg">
 <img alt="" class="img-fluid" src="assets/img/gallery/gallery-6.jpg"/>
 </a>
 </div>
-</div><!-- End Gallery Item -->
+</div><!-- End Gallery Item --
 <div class="col-lg-3 col-md-4">
 <div class="gallery-item">
 <a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-7.jpg">
 <img alt="" class="img-fluid" src="assets/img/gallery/gallery-7.jpg"/>
 </a>
 </div>
-</div><!-- End Gallery Item -->
+</div><!-- End Gallery Item --
 <div class="col-lg-3 col-md-4">
 <div class="gallery-item">
 <a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-8.jpg">
 <img alt="" class="img-fluid" src="assets/img/gallery/gallery-8.jpg"/>
 </a>
 </div>
-</div><!-- End Gallery Item -->
+</div><!-- End Gallery Item --
 </div>
 </div>
 </section><!-- /Gallery Section -->
