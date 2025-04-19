@@ -384,20 +384,92 @@
       <p>Conozca a nuestros especialistas aliados según su especialidad médica.</p>
     </div>
 
-    <!-- Contenedor para los filtros de especialidades -->
+    <!-- Filtro de especialidades -->
     <div class="mb-4">
       <select id="filtro-especialidad" class="form-select">
         <option value="todos">Ver todos</option>
-        <!-- Se insertarán dinámicamente las opciones -->
+        <!-- Opciones se agregan por JS -->
       </select>
     </div>
 
-    <!-- Contenedor para mostrar médicos -->
+    <!-- Contenedor donde se mostrarán los médicos -->
     <div id="contenedor-medicos" class="row gy-4">
-      <!-- JS insertará aquí los médicos -->
+      <!-- JS insertará aquí las tarjetas -->
     </div>
   </div>
 </section>
+
+<!-- SCRIPT para cargar y filtrar médicos -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const apiURL = "https://dabohe88.github.io/FlowResults_backend/api/get_medicos.php";
+  const filtro = document.getElementById("filtro-especialidad");
+  const contenedor = document.getElementById("contenedor-medicos");
+  let medicos = [];
+
+  function renderMedicos(especialidad = "todos") {
+    contenedor.innerHTML = "";
+    const filtrados = especialidad === "todos"
+      ? medicos
+      : medicos.filter(m => m.especialidades.includes(especialidad));
+
+    if (filtrados.length === 0) {
+      contenedor.innerHTML = "<p>No se encontraron médicos para esta especialidad.</p>";
+      return;
+    }
+
+    filtrados.forEach(medico => {
+      const div = document.createElement("div");
+      div.className = "col-lg-6";
+      div.innerHTML = `
+        <div class="team-member d-flex align-items-start">
+          <div class="pic">
+            <img src="assets/img/portfolio/doctors/${medico.imagen}" class="img-fluid" alt="${medico.nombre}">
+          </div>
+          <div class="member-info">
+            <h4>${medico.nombre}</h4>
+            <span>${medico.especialidades.join(", ")}</span>
+            <p><strong>Clínicas:</strong> ${medico.clinicas.join(", ")}</p>
+            <p><strong>Procedimientos:</strong> ${medico.procedimientos.join(", ")}</p>
+            <div class="social mt-2">
+              ${medico.email ? `<a href="mailto:${medico.email}"><i class="bi bi-envelope"></i></a>` : ""}
+              ${medico.contacto ? `<a href="tel:${medico.contacto}"><i class="bi bi-telephone"></i></a>` : ""}
+            </div>
+          </div>
+        </div>
+      `;
+      contenedor.appendChild(div);
+    });
+  }
+
+  fetch(apiURL)
+    .then(response => response.json())
+    .then(data => {
+      medicos = data;
+
+      const especialidadesSet = new Set();
+      medicos.forEach(m => m.especialidades.forEach(e => especialidadesSet.add(e)));
+
+      especialidadesSet.forEach(esp => {
+        const option = document.createElement("option");
+        option.value = esp;
+        option.textContent = esp;
+        filtro.appendChild(option);
+      });
+
+      renderMedicos();
+    })
+    .catch(error => {
+      console.error("Error al cargar los médicos:", error);
+      contenedor.innerHTML = "<p class='text-danger'>No se pudieron cargar los datos del directorio.</p>";
+    });
+
+  filtro.addEventListener("change", () => {
+    renderMedicos(filtro.value);
+  });
+});
+</script>
+
 
 
 <!-- /Departments Section -->
@@ -1110,83 +1182,5 @@
 <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 <!-- Main JS File -->
 <script src="assets/js/main.js"></script>
-<!-- Carga los datos de directorio médico -->
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const apiURL = 'https://dabohe88.github.io/FlowResults_backend/api/get_medicos.php';
-    const contenedor = document.getElementById('contenedor-medicos');
-    const filtro = document.getElementById('filtro-especialidad');
-
-    let medicos = [];
-
-    // Función para renderizar los médicos
-    function renderMedicos(filtrarPor = 'todos') {
-      contenedor.innerHTML = ''; // Limpiar
-
-      const filtrados = filtrarPor === 'todos'
-        ? medicos
-        : medicos.filter(m => m.especialidades.includes(filtrarPor));
-
-      if (filtrados.length === 0) {
-        contenedor.innerHTML = '<p class="text-center">No se encontraron médicos con esa especialidad.</p>';
-        return;
-      }
-
-      filtrados.forEach(medico => {
-        const div = document.createElement('div');
-        div.className = 'col-lg-6';
-
-        div.innerHTML = `
-          <div class="team-member d-flex align-items-start">
-            <div class="pic"><img src="assets/img/portfolio/doctors/${medico.imagen}" class="img-fluid" alt="${medico.nombre}"></div>
-            <div class="member-info">
-              <h4>${medico.nombre}</h4>
-              <span>${medico.especialidades.join(', ')}</span>
-              <p>${medico.procedimientos.join(', ')}</p>
-              <div class="social">
-                ${medico.email ? `<a href="mailto:${medico.email}"><i class="bi bi-envelope"></i></a>` : ''}
-                ${medico.telefono ? `<a href="tel:${medico.telefono}"><i class="bi bi-telephone"></i></a>` : ''}
-              </div>
-            </div>
-          </div>
-        `;
-
-        contenedor.appendChild(div);
-      });
-    }
-
-    // Cargar médicos desde el backend
-    fetch(apiURL)
-      .then(res => res.json())
-      .then(data => {
-        medicos = data;
-        renderMedicos();
-        cargarEspecialidades();
-      })
-      .catch(err => {
-        contenedor.innerHTML = '<p>Error al cargar el directorio médico.</p>';
-        console.error(err);
-      });
-
-    // Cargar especialidades en el filtro
-    function cargarEspecialidades() {
-      const especialidades = new Set();
-      medicos.forEach(m => m.especialidades.forEach(e => especialidades.add(e)));
-
-      [...especialidades].sort().forEach(esp => {
-        const opt = document.createElement('option');
-        opt.value = esp;
-        opt.textContent = esp;
-        filtro.appendChild(opt);
-      });
-    }
-
-    // Evento para filtrar
-    filtro.addEventListener('change', () => {
-      renderMedicos(filtro.value);
-    });
-  });
-</script>
-
 </body>
 </html>
