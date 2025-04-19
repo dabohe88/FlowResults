@@ -446,14 +446,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Extraer especialidades únicas
       const especialidadesSet = new Set();
-      medicos.forEach(m => m.especialidades.forEach(e => especialidadesSet.add(e)));
+medicos.forEach(m => m.especialidades.forEach(e => especialidadesSet.add(e)));
 
-      especialidadesSet.forEach(esp => {
-        const li = document.createElement("li");
-        li.className = "nav-item";
-        li.innerHTML = `<a class="nav-link" data-filtro="${esp}">${esp}</a>`;
-        listaEspecialidades.appendChild(li);
-      });
+// Convertir Set a Array y ordenar alfabéticamente (ignorando mayúsculas/minúsculas)
+const especialidadesOrdenadas = Array.from(especialidadesSet).sort((a, b) =>
+  a.localeCompare(b, 'es', { sensitivity: 'base' })
+);
+
+// Insertar en el DOM ya ordenadas
+especialidadesOrdenadas.forEach(esp => {
+  const li = document.createElement("li");
+  li.className = "nav-item";
+  li.innerHTML = `<a class="nav-link" data-filtro="${esp}">${esp}</a>`;
+  listaEspecialidades.appendChild(li);
+});
+
 
       // Activar comportamiento al hacer clic
       listaEspecialidades.addEventListener("click", e => {
