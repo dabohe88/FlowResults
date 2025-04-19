@@ -371,9 +371,6 @@
   </div>
 </section>
 
-
-
-
 <!-- Departments Section -->
 
 <!-- DIRECTORIO MÉDICO DINÁMICO -->
@@ -387,14 +384,13 @@
       <!-- PESTAÑAS -->
       <div class="col-lg-3">
         <ul id="area-tabs" class="nav nav-tabs flex-column" role="tablist">
-          <!-- JS INSERTA AQUÍ -->
+          <!-- Se genera con JS -->
         </ul>
       </div>
-
       <!-- CONTENIDO DE CADA ÁREA -->
       <div class="col-lg-9 mt-4 mt-lg-0">
         <div id="area-content" class="tab-content">
-          <!-- JS INSERTA AQUÍ -->
+          <!-- Se genera con JS -->
         </div>
       </div>
     </div>
@@ -1046,7 +1042,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const contentContainer = document.getElementById("area-content");
 
   try {
-    const res = await fetch("flowresults/api/get_medicos.php");
+    const res = await fetch("http://localhost/FlowResults_backend/api/get_medicos.php");
     const data = await res.json();
 
     let isFirst = true;
@@ -1063,7 +1059,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         </a>`;
       tabsContainer.appendChild(tabItem);
 
-      // Crear contenido
+      // Crear contenido del área
       const tabPane = document.createElement("div");
       tabPane.className = `tab-pane ${isFirst ? "active show" : ""}`;
       tabPane.id = areaId;
