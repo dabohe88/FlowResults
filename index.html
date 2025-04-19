@@ -376,7 +376,7 @@
 
 <!-- Departments Section -->
 
-<!-- DIRECTORIO DE MÉDICOS ADAPTADO -->
+<!-- DIRECTORIO MÉDICO DINÁMICO -->
 <section class="departments section" id="departments">
   <div class="container" data-aos="fade-up">
     <div class="section-title">
@@ -384,227 +384,23 @@
       <p>Conozca a nuestros especialistas aliados según su especialidad médica.</p>
     </div>
     <div class="row">
+      <!-- PESTAÑAS -->
       <div class="col-lg-3">
-        <ul class="nav nav-tabs flex-column" role="tablist">
-          <li class="nav-item"><a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#tab-dermatologia">Dermatología</a></li>
-          <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-gastroenterologia">Gastroenterología</a></li>
-          <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-ginecologia">Ginecología</a></li>
-          <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-oftalmologia">Oftalmología</a></li>
-          <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-odontologia">Odontología</a></li>
-          <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-neurocirugia">Neurocirugía</a></li>
-          <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-urologia">Urología</a></li>
-          <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-ortopedia">Ortopedia</a></li>
-          <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-suenio">Medicina del Sueño</a></li>
+        <ul id="area-tabs" class="nav nav-tabs flex-column" role="tablist">
+          <!-- JS INSERTA AQUÍ -->
         </ul>
       </div>
+
+      <!-- CONTENIDO DE CADA ÁREA -->
       <div class="col-lg-9 mt-4 mt-lg-0">
-        <div class="tab-content">
-
-          <!-- Dermatología -->
-          <div class="tab-pane active show" id="tab-dermatologia">
-            <div class="team-member d-flex align-items-center">
-              <div class="pic"><img src="assets/img/doctors/dra-orlich.jpg" class="img-fluid" alt="Dra. Orlich"></div>
-              <div class="member-info">
-                <h4>Dra. Dánitza Orlich Wolff</h4>
-                <span>Dermatóloga</span>
-                <p>Especialista en cirugía de Mohs, botox, rellenos dérmicos, tratamientos láser.</p>
-                <div class="social">
-                  <a href="mailto:info@clinicaskn.com"><i class="bi bi-envelope"></i></a>
-                  <a href="tel:+50622088601"><i class="bi bi-telephone"></i></a>
-                </div>
-              </div>
-            </div>
-            <div class="team-member d-flex align-items-center mt-4">
-              <div class="pic"><img src="assets/img/doctors/dr-cortes.jpg" class="img-fluid" alt="Dr. Cortés"></div>
-              <div class="member-info">
-                <h4>Dr. Guillermo Cortés Antia</h4>
-                <span>Dermatólogo</span>
-                <p>Oncología cutánea, cirugía dermatológica, tratamiento de acné y psoriasis.</p>
-                <div class="social">
-                  <a href="tel:+50622212400"><i class="bi bi-telephone"></i></a>
-                  <a href="https://wa.me/60299527"><i class="bi bi-whatsapp"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Gastroenterología -->
-          <div class="tab-pane" id="tab-gastroenterologia">
-            <div class="team-member d-flex align-items-center">
-              <div class="pic"><img src="assets/img/doctors/dr-cubero.jpg" class="img-fluid" alt="Dr. Cubero"></div>
-              <div class="member-info">
-                <h4>Dr. Jorge Cubero Sotela</h4>
-                <span>Gastroenterólogo</span>
-                <p>Procedimientos: gastroscopía, colonoscopía, ligadura de hemorroides, ultrasonido endoscópico.</p>
-                <div class="social">
-                  <a href="mailto:endogastrocr@gmail.com"><i class="bi bi-envelope"></i></a>
-                  <a href="tel:+50622088807"><i class="bi bi-telephone"></i></a>
-                  <a href="https://wa.me/63497219"><i class="bi bi-whatsapp"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Ginecología -->
-          <div class="tab-pane" id="tab-ginecologia">
-            <div class="team-member d-flex align-items-center">
-              <div class="pic"><img src="assets/img/doctors/dr-cabezas.jpg" class="img-fluid" alt="Dr. Cabezas"></div>
-              <div class="member-info">
-                <h4>Dr. José Gabriel Cabezas Garita</h4>
-                <span>Ginecólogo Oncólogo</span>
-                <p>Cirugía de cáncer ginecológico, colposcopía, biopsias, histerectomía.</p>
-                <div class="social">
-                  <a href="mailto:jgcabezasg@yahoo.es"><i class="bi bi-envelope"></i></a>
-                  <a href="https://wa.me/83898888"><i class="bi bi-whatsapp"></i></a>
-                </div>
-              </div>
-            </div>
-            <div class="team-member d-flex align-items-center mt-4">
-              <div class="pic"><img src="assets/img/doctors/dra-vallejo.jpg" class="img-fluid" alt="Dra. Vallejo"></div>
-              <div class="member-info">
-                <h4>Dra. Juliana Vallejo Barón</h4>
-                <span>Ginecóloga-Obstetra</span>
-                <p>Control prenatal, cirugía laparoscópica, tratamiento de cáncer ginecológico.</p>
-                <div class="social">
-                  <a href="mailto:pacientes@dravallejo.com"><i class="bi bi-envelope"></i></a>
-                  <a href="https://wa.me/85865050"><i class="bi bi-whatsapp"></i></a>
-                </div>
-              </div>
-            </div>
-            <div class="team-member d-flex align-items-center mt-4">
-              <div class="pic"><img src="assets/img/doctors/dr-rodriguez.jpg" class="img-fluid" alt="Dr. Rodríguez"></div>
-              <div class="member-info">
-                <h4>Dr. Vladimir Rodríguez Cambronero</h4>
-                <span>Ginecólogo-Obstetra</span>
-                <p>Medicina materno-fetal, histerectomía, colposcopía, terapia hormonal.</p>
-                <div class="social">
-                  <a href="mailto:vladi.rodriguez@yahoo.com"><i class="bi bi-envelope"></i></a>
-                  <a href="tel:+50685052510"><i class="bi bi-telephone"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Oftalmología -->
-          <div class="tab-pane" id="tab-oftalmologia">
-            <div class="team-member d-flex align-items-center">
-              <div class="pic"><img src="assets/img/doctors/dra-alpizar.jpg" class="img-fluid" alt="Dra. Alpízar"></div>
-              <div class="member-info">
-                <h4>Dra. Natalia Alpízar Álvarez</h4>
-                <span>Oftalmóloga</span>
-                <p>Cirugía de catarata, LASIK, inyectoterapia intraocular.</p>
-                <div class="social">
-                  <a href="mailto:nalpizar@oftalmocima.com"><i class="bi bi-envelope"></i></a>
-                  <a href="tel:+50622088118"><i class="bi bi-telephone"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Odontología -->
-          <div class="tab-pane" id="tab-odontologia">
-            <div class="team-member d-flex align-items-center">
-              <div class="pic"><img src="assets/img/doctors/dr-kriebel.jpg" class="img-fluid" alt="Dr. Kriebel"></div>
-              <div class="member-info">
-                <h4>Dr. Mariano Kriebel</h4>
-                <span>Prostodoncista</span>
-                <p>Implantes dentales, carillas, prótesis removibles, endodoncia.</p>
-                <div class="social">
-                  <a href="mailto:info@kriebeldental.com"><i class="bi bi-envelope"></i></a>
-                </div>
-              </div>
-            </div>
-            <div class="team-member d-flex align-items-center mt-4">
-              <div class="pic"><img src="assets/img/doctors/dr-garita.jpg" class="img-fluid" alt="Dr. Garita"></div>
-              <div class="member-info">
-                <h4>Dr. José V. Garita Carrillo</h4>
-                <span>Odontólogo Implantólogo</span>
-                <p>Implantes dentales, diseño de sonrisa, cirugía oral, ortodoncia.</p>
-                <div class="social">
-                  <a href="mailto:info@confidentalcr.com"><i class="bi bi-envelope"></i></a>
-                </div>
-              </div>
-            </div>
-			<div class="team-member d-flex align-items-center mt-4">
-              <div class="pic"><img src="assets/img/doctors/dr-torres.jpg" class="img-fluid" alt="Dr. Torres"></div>
-              <div class="member-info">
-                <h4>Dr. Esteban Torres Briceño</h4>
-                <span>Odontólogo</span>
-                <p>Implantes dentales, diseño de sonrisa, ortodoncia.</p>
-                <div class="social">
-                  <a href="mailto:artdentalcare@gmail.com"><i class="bi bi-envelope"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Neurocirugía -->
-          <div class="tab-pane" id="tab-neurocirugia">
-            <div class="team-member d-flex align-items-center">
-              <div class="pic"><img src="assets/img/doctors/dr-gamboa.jpg" class="img-fluid" alt="Dr. Gamboa"></div>
-              <div class="member-info">
-                <h4>Dr. Andrés Gamboa Sanabria</h4>
-                <span>Neurocirujano</span>
-                <p>Resección de tumores cerebrales, cirugía de aneurismas, columna vertebral.</p>
-                <div class="social">
-                  <a href="mailto:andresgs4@yahoo.com"><i class="bi bi-envelope"></i></a>
-                  <a href="tel:+50622463459"><i class="bi bi-telephone"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Urología -->
-          <div class="tab-pane" id="tab-urologia">
-            <div class="team-member d-flex align-items-center">
-              <div class="pic"><img src="assets/img/doctors/dr-gonzalez.jpg" class="img-fluid" alt="Dr. González"></div>
-              <div class="member-info">
-                <h4>Dr. Mario González Salas</h4>
-                <span>Urólogo</span>
-                <p>Cirugía de próstata con láser, cálculos renales, cirugías reconstructivas.</p>
-                <div class="social">
-                  <a href="tel:+50670153303"><i class="bi bi-telephone"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Ortopedia -->
-          <div class="tab-pane" id="tab-ortopedia">
-            <div class="team-member d-flex align-items-center">
-              <div class="pic"><img src="assets/img/doctors/dr-gutierrez.jpg" class="img-fluid" alt="Dr. Gutiérrez"></div>
-              <div class="member-info">
-                <h4>Dr. Jorge Gutiérrez Murillo</h4>
-                <span>Ortopedista</span>
-                <p>Cirugía artroscópica de tobillo, reconstrucción de ligamentos, fracturas.</p>
-                <div class="social">
-                  <a href="https://wa.me/83750476"><i class="bi bi-whatsapp"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Medicina del Sueño -->
-          <div class="tab-pane" id="tab-suenio">
-            <div class="team-member d-flex align-items-center">
-              <div class="pic"><img src="assets/img/doctors/dra-estrada.jpg" class="img-fluid" alt="Dra. Estrada"></div>
-              <div class="member-info">
-                <h4>Dra. Lilliana Estrada Chaverri</h4>
-                <span>Especialista en Medicina del Sueño</span>
-                <p>Polisomnografía, apnea del sueño, insomnio crónico.</p>
-                <div class="social">
-                  <a href="mailto:recepcion@sleepmedcostarica.com"><i class="bi bi-envelope"></i></a>
-                  <a href="tel:+50622088855"><i class="bi bi-telephone"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
+        <div id="area-content" class="tab-content">
+          <!-- JS INSERTA AQUÍ -->
         </div>
       </div>
     </div>
   </div>
 </section>
+
 <!-- /Departments Section -->
 
 <!-- Testimonials Section -->
@@ -1244,5 +1040,69 @@
 <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 <!-- Main JS File -->
 <script src="assets/js/main.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+  const tabsContainer = document.getElementById("area-tabs");
+  const contentContainer = document.getElementById("area-content");
+
+  try {
+    const res = await fetch("flowresults/api/get_medicos.php");
+    const data = await res.json();
+
+    let isFirst = true;
+
+    for (const area in data) {
+      const areaId = `tab-${area.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "-")}`;
+
+      // Crear pestaña
+      const tabItem = document.createElement("li");
+      tabItem.className = "nav-item";
+      tabItem.innerHTML = `
+        <a class="nav-link ${isFirst ? "active show" : ""}" data-bs-toggle="tab" data-bs-target="#${areaId}">
+          ${area}
+        </a>`;
+      tabsContainer.appendChild(tabItem);
+
+      // Crear contenido
+      const tabPane = document.createElement("div");
+      tabPane.className = `tab-pane ${isFirst ? "active show" : ""}`;
+      tabPane.id = areaId;
+
+      data[area].forEach(medico => {
+        const imgSrc = `assets/img/doctors/${medico.imagen}`;
+        const tel = medico.contacto?.match(/\d{8}/g)?.[0] ?? "";
+        const whatsapp = medico.contacto?.match(/\d{8}/g)?.[1] ?? "";
+        const correo = medico.email ?? "";
+        const especialidades = medico.especialidades?.join(", ") ?? "";
+        const descripcion = medico.descripcion ?? especialidades;
+
+        const card = `
+          <div class="team-member d-flex align-items-center mt-4">
+            <div class="pic"><img src="${imgSrc}" class="img-fluid" alt="${medico.nombre}"></div>
+            <div class="member-info">
+              <h4>${medico.nombre}</h4>
+              <span>${especialidades}</span>
+              <p>${descripcion}</p>
+              <div class="social">
+                ${correo ? `<a href="mailto:${correo}"><i class="bi bi-envelope"></i></a>` : ""}
+                ${tel ? `<a href="tel:+506${tel}"><i class="bi bi-telephone"></i></a>` : ""}
+                ${whatsapp ? `<a href="https://wa.me/506${whatsapp}"><i class="bi bi-whatsapp"></i></a>` : ""}
+              </div>
+            </div>
+          </div>`;
+        tabPane.innerHTML += card;
+      });
+
+      contentContainer.appendChild(tabPane);
+      isFirst = false;
+    }
+  } catch (error) {
+    console.error("Error cargando el directorio:", error);
+    tabsContainer.innerHTML = "<li class='nav-item'>No se pudo cargar el directorio</li>";
+    contentContainer.innerHTML = "<p class='text-danger'>Error al conectar con el backend.</p>";
+  }
+});
+</script>
+
 </body>
 </html>
