@@ -376,7 +376,7 @@
 
 <!-- Departments Section -->
 
-<!-- DIRECTORIO MÉDICO (DINÁMICO) -->
+<!-- DIRECTORIO MÉDICO DINÁMICO CON LAYOUT VERTICAL -->
 <section class="departments section" id="departments">
   <div class="container" data-aos="fade-up">
     <div class="section-title">
@@ -385,17 +385,17 @@
     </div>
 
     <div class="row">
-      <!-- Columna izquierda: especialidades -->
+      <!-- Menú lateral de especialidades -->
       <div class="col-lg-3">
         <ul id="lista-especialidades" class="nav nav-tabs flex-column" role="tablist">
-          <!-- Se cargan dinámicamente -->
+          <li class="nav-item"><a class="nav-link active" data-filtro="todos">Ver todos</a></li>
         </ul>
       </div>
 
-      <!-- Columna derecha: médicos -->
+      <!-- Contenedor de médicos -->
       <div class="col-lg-9 mt-4 mt-lg-0">
         <div id="contenedor-medicos" class="tab-content">
-          <!-- Se cargan dinámicamente -->
+          <!-- Aquí va el contenido dinámico -->
         </div>
       </div>
     </div>
@@ -404,67 +404,77 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  const apiURL = "https://flowresults-backend.azurewebsites.net/api/get_medicos.php";
+  const apiURL = "http://localhost/FlowResults_backend/api/get_medicos.php";
   const listaEspecialidades = document.getElementById("lista-especialidades");
-  const contenedorMedicos = document.getElementById("contenedor-medicos");
+  const contenedor = document.getElementById("contenedor-medicos");
   let medicos = [];
+
+  function renderMedicos(especialidad = "todos") {
+    contenedor.innerHTML = "";
+    const filtrados = especialidad === "todos"
+      ? medicos
+      : medicos.filter(m => m.especialidades.includes(especialidad));
+
+    if (filtrados.length === 0) {
+      contenedor.innerHTML = "<p>No se encontraron médicos para esta especialidad.</p>";
+      return;
+    }
+
+    filtrados.forEach(medico => {
+      const div = document.createElement("div");
+      div.className = "team-member d-flex align-items-center mb-4";
+      div.innerHTML = `
+        <div class="pic"><img src="assets/img/doctors/${medico.imagen}" class="img-fluid" alt="${medico.nombre}"></div>
+        <div class="member-info ms-3">
+          <h4>${medico.nombre}</h4>
+          <span>${medico.especialidades.join(", ")}</span>
+          <p><strong>Clínicas:</strong> ${medico.clinicas.join(", ")}</p>
+          <p><strong>Procedimientos:</strong> ${medico.procedimientos.join(", ")}</p>
+          <div class="social mt-2">
+            ${medico.email ? `<a href="mailto:${medico.email}"><i class="bi bi-envelope"></i></a>` : ""}
+            ${medico.contacto ? `<a href="tel:${medico.contacto}"><i class="bi bi-telephone"></i></a>` : ""}
+          </div>
+        </div>
+      `;
+      contenedor.appendChild(div);
+    });
+  }
 
   fetch(apiURL)
     .then(response => response.json())
     .then(data => {
       medicos = data;
-      const especialidades = new Set();
 
-      medicos.forEach(m => m.especialidades.forEach(e => especialidades.add(e)));
+      // Extraer especialidades únicas
+      const especialidadesSet = new Set();
+      medicos.forEach(m => m.especialidades.forEach(e => especialidadesSet.add(e)));
 
-      // Crear tabs
-      let primera = true;
-      especialidades.forEach(esp => {
+      especialidadesSet.forEach(esp => {
         const li = document.createElement("li");
         li.className = "nav-item";
-        li.innerHTML = `<a class="nav-link${primera ? ' active show' : ''}" data-bs-toggle="tab" href="#tab-${esp.replace(/\s+/g, '').toLowerCase()}">${esp}</a>`;
+        li.innerHTML = `<a class="nav-link" data-filtro="${esp}">${esp}</a>`;
         listaEspecialidades.appendChild(li);
-        primera = false;
       });
 
-      // Crear contenido por especialidad
-      especialidades.forEach((esp, index) => {
-        const div = document.createElement("div");
-        div.className = `tab-pane fade${index === 0 ? ' active show' : ''}`;
-        div.id = `tab-${esp.replace(/\s+/g, '').toLowerCase()}`;
-
-        const medicosFiltrados = medicos.filter(m => m.especialidades.includes(esp));
-
-        medicosFiltrados.forEach(medico => {
-          const item = document.createElement("div");
-          item.className = "team-member d-flex align-items-center mb-4";
-          item.innerHTML = `
-            <div class="pic">
-              <img src="assets/img/doctors/${medico.imagen}" class="img-fluid" alt="${medico.nombre}">
-            </div>
-            <div class="member-info">
-              <h4>${medico.nombre}</h4>
-              <span>${medico.especialidades.join(", ")}</span>
-              <p><strong>Clínicas:</strong> ${medico.clinicas.join(", ")}</p>
-              <p><strong>Procedimientos:</strong> ${medico.procedimientos.join(", ")}</p>
-              <div class="social">
-                ${medico.email ? `<a href="mailto:${medico.email}"><i class="bi bi-envelope"></i></a>` : ""}
-                ${medico.contacto ? `<a href="tel:${medico.contacto}"><i class="bi bi-telephone"></i></a>` : ""}
-              </div>
-            </div>
-          `;
-          div.appendChild(item);
-        });
-
-        contenedorMedicos.appendChild(div);
+      // Activar comportamiento al hacer clic
+      listaEspecialidades.addEventListener("click", e => {
+        if (e.target && e.target.matches("a.nav-link")) {
+          [...listaEspecialidades.querySelectorAll("a")].forEach(a => a.classList.remove("active"));
+          e.target.classList.add("active");
+          renderMedicos(e.target.getAttribute("data-filtro"));
+        }
       });
+
+      // Mostrar todos inicialmente
+      renderMedicos();
     })
     .catch(error => {
-      console.error("Error al cargar médicos:", error);
-      contenedorMedicos.innerHTML = "<p class='text-danger'>No se pudieron cargar los datos del directorio.</p>";
+      console.error("Error al cargar los médicos:", error);
+      contenedor.innerHTML = "<p class='text-danger'>No se pudieron cargar los datos del directorio.</p>";
     });
 });
 </script>
+
 
 
 <!-- /Departments Section -->
