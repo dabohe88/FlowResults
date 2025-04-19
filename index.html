@@ -384,92 +384,87 @@
       <p>Conozca a nuestros especialistas aliados según su especialidad médica.</p>
     </div>
 
-    <!-- Filtro de especialidades -->
-    <div class="mb-4">
-      <select id="filtro-especialidad" class="form-select">
-        <option value="todos">Ver todos</option>
-        <!-- Opciones se agregan por JS -->
-      </select>
-    </div>
+    <div class="row">
+      <!-- Columna izquierda: especialidades -->
+      <div class="col-lg-3">
+        <ul id="lista-especialidades" class="nav nav-tabs flex-column" role="tablist">
+          <!-- Se cargan dinámicamente -->
+        </ul>
+      </div>
 
-    <!-- Contenedor donde se mostrarán los médicos -->
-    <div id="contenedor-medicos" class="row gy-4">
-      <!-- JS insertará aquí las tarjetas -->
+      <!-- Columna derecha: médicos -->
+      <div class="col-lg-9 mt-4 mt-lg-0">
+        <div id="contenedor-medicos" class="tab-content">
+          <!-- Se cargan dinámicamente -->
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- SCRIPT para cargar y filtrar médicos -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  const apiURL = "https://flowresults-backend-bgavb2hxbrhrhseg.eastus-01.azurewebsites.net/api/get_medicos.php";
-  const filtro = document.getElementById("filtro-especialidad");
-  const contenedor = document.getElementById("contenedor-medicos");
+  const apiURL = "https://flowresults-backend.azurewebsites.net/api/get_medicos.php";
+  const listaEspecialidades = document.getElementById("lista-especialidades");
+  const contenedorMedicos = document.getElementById("contenedor-medicos");
   let medicos = [];
-
-  function renderMedicos(especialidad = "todos") {
-    contenedor.innerHTML = "";
-    const filtrados = especialidad === "todos"
-      ? medicos
-      : medicos.filter(m => m.especialidades.includes(especialidad));
-
-    if (filtrados.length === 0) {
-      contenedor.innerHTML = "<p>No se encontraron médicos para esta especialidad.</p>";
-      return;
-    }
-
-    filtrados.forEach(medico => {
-      const div = document.createElement("div");
-      div.className = "col-lg-6";
-      div.innerHTML = `
-        <div class="team-member d-flex align-items-start">
-          <div class="pic">
-            <img src="assets/img/doctors/${medico.imagen}" class="img-fluid" alt="${medico.nombre}">
-          </div>
-          <div class="member-info">
-            <h4>${medico.nombre}</h4>
-            <span>${medico.especialidades.join(", ")}</span>
-            <p><strong>Clínicas:</strong> ${medico.clinicas.join(", ")}</p>
-            <p><strong>Procedimientos:</strong> ${medico.procedimientos.join(", ")}</p>
-            <div class="social mt-2">
-              ${medico.email ? `<a href="mailto:${medico.email}"><i class="bi bi-envelope"></i></a>` : ""}
-              ${medico.contacto ? `<a href="tel:${medico.contacto}"><i class="bi bi-telephone"></i></a>` : ""}
-            </div>
-          </div>
-        </div>
-      `;
-      contenedor.appendChild(div);
-    });
-  }
 
   fetch(apiURL)
     .then(response => response.json())
     .then(data => {
       medicos = data;
+      const especialidades = new Set();
 
-      const especialidadesSet = new Set();
-      medicos.forEach(m => m.especialidades.forEach(e => especialidadesSet.add(e)));
+      medicos.forEach(m => m.especialidades.forEach(e => especialidades.add(e)));
 
-      especialidadesSet.forEach(esp => {
-        const option = document.createElement("option");
-        option.value = esp;
-        option.textContent = esp;
-        filtro.appendChild(option);
+      // Crear tabs
+      let primera = true;
+      especialidades.forEach(esp => {
+        const li = document.createElement("li");
+        li.className = "nav-item";
+        li.innerHTML = `<a class="nav-link${primera ? ' active show' : ''}" data-bs-toggle="tab" href="#tab-${esp.replace(/\s+/g, '').toLowerCase()}">${esp}</a>`;
+        listaEspecialidades.appendChild(li);
+        primera = false;
       });
 
-      renderMedicos();
+      // Crear contenido por especialidad
+      especialidades.forEach((esp, index) => {
+        const div = document.createElement("div");
+        div.className = `tab-pane fade${index === 0 ? ' active show' : ''}`;
+        div.id = `tab-${esp.replace(/\s+/g, '').toLowerCase()}`;
+
+        const medicosFiltrados = medicos.filter(m => m.especialidades.includes(esp));
+
+        medicosFiltrados.forEach(medico => {
+          const item = document.createElement("div");
+          item.className = "team-member d-flex align-items-center mb-4";
+          item.innerHTML = `
+            <div class="pic">
+              <img src="assets/img/doctors/${medico.imagen}" class="img-fluid" alt="${medico.nombre}">
+            </div>
+            <div class="member-info">
+              <h4>${medico.nombre}</h4>
+              <span>${medico.especialidades.join(", ")}</span>
+              <p><strong>Clínicas:</strong> ${medico.clinicas.join(", ")}</p>
+              <p><strong>Procedimientos:</strong> ${medico.procedimientos.join(", ")}</p>
+              <div class="social">
+                ${medico.email ? `<a href="mailto:${medico.email}"><i class="bi bi-envelope"></i></a>` : ""}
+                ${medico.contacto ? `<a href="tel:${medico.contacto}"><i class="bi bi-telephone"></i></a>` : ""}
+              </div>
+            </div>
+          `;
+          div.appendChild(item);
+        });
+
+        contenedorMedicos.appendChild(div);
+      });
     })
     .catch(error => {
-      console.error("Error al cargar los médicos:", error);
-      contenedor.innerHTML = "<p class='text-danger'>No se pudieron cargar los datos del directorio.</p>";
+      console.error("Error al cargar médicos:", error);
+      contenedorMedicos.innerHTML = "<p class='text-danger'>No se pudieron cargar los datos del directorio.</p>";
     });
-
-  filtro.addEventListener("change", () => {
-    renderMedicos(filtro.value);
-  });
 });
 </script>
-
 
 
 <!-- /Departments Section -->
