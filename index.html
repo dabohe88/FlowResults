@@ -388,7 +388,6 @@
       <!-- Menú lateral de especialidades -->
       <div class="col-lg-3">
         <ul id="lista-especialidades" class="nav nav-tabs flex-column" role="tablist">
-          <li class="nav-item"><a class="nav-link active" data-filtro="todos">Ver todos</a></li>
         </ul>
       </div>
 
@@ -465,8 +464,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
 
-      // Mostrar todos inicialmente
-      renderMedicos();
+      // Mostrar la primera especialidad como predeterminada
+const primerLi = listaEspecialidades.querySelector("li a");
+if (primerLi) {
+  primerLi.classList.add("active");
+  const filtroInicial = primerLi.getAttribute("data-filtro");
+  renderMedicos(filtroInicial);
+}
+
     })
     .catch(error => {
       console.error("Error al cargar los médicos:", error);
