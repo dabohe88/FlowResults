@@ -1075,24 +1075,36 @@ document.addEventListener('DOMContentLoaded', () => {
         data[area].forEach(medico => {
           const especialidades = medico.especialidades.join(', ');
           const imgSrc = `assets/img/doctors/${medico.imagen}`;
-          const telefono = medico.contacto ? `<a href="tel:${medico.contacto}"><i class="bi bi-telephone"></i></a>` : '';
-          const correo = medico.email ? `<a href="mailto:${medico.email}"><i class="bi bi-envelope"></i></a>` : '';
+          const telefono = medico.contacto ? `<a href="tel:${medico.contacto}" data-bs-toggle="tooltip" title="Llamar al médico"><i class="bi bi-telephone"></i></a>` : '';
+          const correo = medico.email ? `<a href="mailto:${medico.email}" data-bs-toggle="tooltip" title="Enviar correo electrónico"><i class="bi bi-envelope"></i></a>` : '';
+
           const clinica = medico.clinica || '';
+          const procedimientos = medico.procedimientos && medico.procedimientos.length > 0
+			  ? `
+				<p class="fw-bold mb-1">Procedimientos:</p>
+				<ul class="procedimientos-list">
+				  ${medico.procedimientos.map(proc => `<li>${proc}</li>`).join('')}
+				</ul>
+			  `
+			  : '';
+
 
           const html = `
-            <div class="team-member d-flex align-items-center mt-4">
-              <div class="pic"><img src="${imgSrc}" class="img-fluid" alt="${medico.nombre}"></div>
-              <div class="member-info">
-                <h4>${medico.nombre}</h4>
-                <span>${especialidades}</span>
-                <p>${clinica}</p>
-                <div class="social">
-                  ${correo}
-                  ${telefono}
-                </div>
-              </div>
-            </div>
-          `;
+  <div class="team-member d-flex align-items-center mt-4">
+    <div class="pic"><img src="${imgSrc}" class="img-fluid" alt="${medico.nombre}"></div>
+    <div class="member-info">
+      <h4>${medico.nombre}</h4>
+      <span>${especialidades}</span>
+      <p>${clinica}</p>
+      ${procedimientos}
+      <div class="social mt-2">
+        ${correo}
+        ${telefono}
+      </div>
+    </div>
+  </div>
+`;
+
           pane.innerHTML += html;
         });
 
@@ -1107,6 +1119,11 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="alert alert-danger">No se pudo cargar el directorio<br>
         <span style="color: red;">Error al conectar con el backend.</span></div>`;
     });
+	const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    tooltipTriggerList.forEach(tooltipTriggerEl => {
+    new bootstrap.Tooltip(tooltipTriggerEl);
+});
+
 });
 </script>
 
