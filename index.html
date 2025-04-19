@@ -1036,69 +1036,80 @@
 <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 <!-- Main JS File -->
 <script src="assets/js/main.js"></script>
+
 <script>
-document.addEventListener("DOMContentLoaded", async () => {
-  const tabsContainer = document.getElementById("area-tabs");
-  const contentContainer = document.getElementById("area-content");
+document.addEventListener('DOMContentLoaded', () => {
+  const url = 'http://localhost/FlowResults_backend/api/get_medicos.php'; // ⚠️ Usa aquí la URL real si ya está en Azure
 
-  try {
-    const res = await fetch("http://localhost/FlowResults_backend/api/get_medicos.php");
-    const data = await res.json();
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      const tabContent = document.querySelector('.tab-content');
+      const tabList = document.querySelector('.nav-tabs');
 
-    let isFirst = true;
+      // Limpiar contenido inicial
+      tabList.innerHTML = '';
+      tabContent.innerHTML = '';
 
-    for (const area in data) {
-      const areaId = `tab-${area.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "-")}`;
+      let first = true;
 
-      // Crear pestaña
-      const tabItem = document.createElement("li");
-      tabItem.className = "nav-item";
-      tabItem.innerHTML = `
-        <a class="nav-link ${isFirst ? "active show" : ""}" data-bs-toggle="tab" data-bs-target="#${areaId}">
-          ${area}
-        </a>`;
-      tabsContainer.appendChild(tabItem);
+      for (const area in data) {
+        const safeId = 'tab-' + area.toLowerCase()
+          .replace(/\s+/g, '-')                         // espacios por guiones
+          .normalize('NFD').replace(/[\u0300-\u036f]/g, ''); // quitar tildes
 
-      // Crear contenido del área
-      const tabPane = document.createElement("div");
-      tabPane.className = `tab-pane ${isFirst ? "active show" : ""}`;
-      tabPane.id = areaId;
+        // Crear pestaña
+        const tab = document.createElement('li');
+        tab.classList.add('nav-item');
+        tab.innerHTML = `
+          <a class="nav-link ${first ? 'active show' : ''}" data-bs-toggle="tab" data-bs-target="#${safeId}">
+            ${area}
+          </a>`;
+        tabList.appendChild(tab);
 
-      data[area].forEach(medico => {
-        const imgSrc = `assets/img/doctors/${medico.imagen}`;
-        const tel = medico.contacto?.match(/\d{8}/g)?.[0] ?? "";
-        const whatsapp = medico.contacto?.match(/\d{8}/g)?.[1] ?? "";
-        const correo = medico.email ?? "";
-        const especialidades = medico.especialidades?.join(", ") ?? "";
-        const descripcion = medico.descripcion ?? especialidades;
+        // Crear contenido del área
+        const pane = document.createElement('div');
+        pane.className = `tab-pane ${first ? 'active show' : ''}`;
+        pane.id = safeId;
 
-        const card = `
-          <div class="team-member d-flex align-items-center mt-4">
-            <div class="pic"><img src="${imgSrc}" class="img-fluid" alt="${medico.nombre}"></div>
-            <div class="member-info">
-              <h4>${medico.nombre}</h4>
-              <span>${especialidades}</span>
-              <p>${descripcion}</p>
-              <div class="social">
-                ${correo ? `<a href="mailto:${correo}"><i class="bi bi-envelope"></i></a>` : ""}
-                ${tel ? `<a href="tel:+506${tel}"><i class="bi bi-telephone"></i></a>` : ""}
-                ${whatsapp ? `<a href="https://wa.me/506${whatsapp}"><i class="bi bi-whatsapp"></i></a>` : ""}
+        data[area].forEach(medico => {
+          const especialidades = medico.especialidades.join(', ');
+          const imgSrc = `assets/img/doctors/${medico.imagen}`;
+          const telefono = medico.contacto ? `<a href="tel:${medico.contacto}"><i class="bi bi-telephone"></i></a>` : '';
+          const correo = medico.email ? `<a href="mailto:${medico.email}"><i class="bi bi-envelope"></i></a>` : '';
+          const clinica = medico.clinica || '';
+
+          const html = `
+            <div class="team-member d-flex align-items-center mt-4">
+              <div class="pic"><img src="${imgSrc}" class="img-fluid" alt="${medico.nombre}"></div>
+              <div class="member-info">
+                <h4>${medico.nombre}</h4>
+                <span>${especialidades}</span>
+                <p>${clinica}</p>
+                <div class="social">
+                  ${correo}
+                  ${telefono}
+                </div>
               </div>
             </div>
-          </div>`;
-        tabPane.innerHTML += card;
-      });
+          `;
+          pane.innerHTML += html;
+        });
 
-      contentContainer.appendChild(tabPane);
-      isFirst = false;
-    }
-  } catch (error) {
-    console.error("Error cargando el directorio:", error);
-    tabsContainer.innerHTML = "<li class='nav-item'>No se pudo cargar el directorio</li>";
-    contentContainer.innerHTML = "<p class='text-danger'>Error al conectar con el backend.</p>";
-  }
+        tabContent.appendChild(pane);
+        first = false;
+      }
+    })
+    .catch(error => {
+      console.error('Error al conectar con el backend:', error);
+      const tabContent = document.querySelector('.tab-content');
+      tabContent.innerHTML = `
+        <div class="alert alert-danger">No se pudo cargar el directorio<br>
+        <span style="color: red;">Error al conectar con el backend.</span></div>`;
+    });
 });
 </script>
+
 
 </body>
 </html>
