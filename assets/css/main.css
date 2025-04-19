@@ -1801,4 +1801,38 @@ section,
   object-fit: cover;
 }
 
+/* Estilo para íconos de contacto en el directorio médico */
+.member-info .social a {
+  margin-right: 10px;
+  color: var(--color-primary);
+}
+.social a {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 1.2rem;
+  color: #333;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social a:hover {
+  transform: scale(1.2);
+  color: #007bff; /* o el color que quieras usar como marca */
+}
+.procedimientos-list {
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.procedimientos-list li {
+  list-style: none;
+  background-color: #e0f0ff;
+  padding: 6px 10px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  color: #007bff;
+}
+
 }
