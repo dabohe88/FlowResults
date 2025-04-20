@@ -1069,9 +1069,8 @@ document.addEventListener('DOMContentLoaded', () => {
           const especialidades = medico.especialidades.join(', ');
           const imgSrc = `assets/img/doctors/${medico.imagen}`;
           const rawTel = medico.contacto || '';
-          const telMatch = medico.contacto?.match(/\d{8}/);
-const telefono = telMatch ? `<a href="tel:+506${telMatch[0]}" data-bs-toggle="tooltip" title="Llamar al médico"><i class="bi bi-telephone"></i></a>` : '';
-
+          const telMatch = rawTel.match(/\d{4,}/); // Primer grupo de 4+ dígitos (previene errores por guiones o espacios)
+          const telefono = telMatch ? `<a href="tel:+506${telMatch[0]}" data-bs-toggle="tooltip" title="Llamar al médico"><i class="bi bi-telephone"></i></a>` : '';
 
           const correo = medico.email ? `<a href="mailto:${medico.email}" data-bs-toggle="tooltip" title="Enviar correo electrónico"><i class="bi bi-envelope"></i></a>` : '';
 
