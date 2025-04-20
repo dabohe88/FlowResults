@@ -23,13 +23,6 @@
 <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"/>
 <!-- Main CSS File -->
 <link href="assets/css/main.css" rel="stylesheet"/>
-<!-- =======================================================
-  * Template Name: Medilab
-  * Template URL: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 <body class="index-page">
 <header class="header sticky-top" id="header">
@@ -237,21 +230,21 @@
 <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
  <i class="fa-solid fa-hospital fa-3x mb-2"></i>
 <div class="stats-item">
-<span class="purecounter" data-purecounter-duration="1" data-purecounter-end="22" data-purecounter-start="0"></span>
+<span class="purecounter" data-purecounter-duration="1" data-purecounter-end="17" data-purecounter-start="0"></span>
 <p>Clínicas</p>
 </div>
 </div><!-- End Stats Item -->
 <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
 <i class="fa-solid fa-stethoscope fa-3x mb-2"></i>
 <div class="stats-item">
-<span class="purecounter" data-purecounter-duration="1" data-purecounter-end="17" data-purecounter-start="0"></span>
+<span class="purecounter" data-purecounter-duration="1" data-purecounter-end="20" data-purecounter-start="0"></span>
 <p>Especialidades</p>
 </div>
 </div><!-- End Stats Item -->
 <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
 <i class="fa-solid fa-staff-snake fa-3x mb-2"></i>
 <div class="stats-item">
-<span class="purecounter" data-purecounter-duration="1" data-purecounter-end="110" data-purecounter-start="0"></span>
+<span class="purecounter" data-purecounter-duration="1" data-purecounter-end="41" data-purecounter-start="0"></span>
 <p>Procedimientos</p>
 </div>
 </div><!-- End Stats Item -->
@@ -1040,7 +1033,7 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const url = 'https://flowresults-backend-bgavb2hxbrhrhseg.eastus-01.azurewebsites.net/api/get_medicos.php'; // ⚠️ Usa aquí la URL real si ya está en Azure
-
+  //const url = 'http://localhost/FlowResults_backend/api/get_medicos.php'; // para uso local
   fetch(url)
     .then(response => response.json())
     .then(data => {
@@ -1075,7 +1068,10 @@ document.addEventListener('DOMContentLoaded', () => {
         data[area].forEach(medico => {
           const especialidades = medico.especialidades.join(', ');
           const imgSrc = `assets/img/doctors/${medico.imagen}`;
-          const telefono = medico.contacto ? `<a href="tel:${medico.contacto}" data-bs-toggle="tooltip" title="Llamar al médico"><i class="bi bi-telephone"></i></a>` : '';
+          const rawTel = medico.contacto || '';
+          const telMatch = rawTel.match(/\d{4,}/); // Primer grupo de 4+ dígitos (previene errores por guiones o espacios)
+          const telefono = telMatch ? `<a href="tel:+506${telMatch[0]}" data-bs-toggle="tooltip" title="Llamar al médico"><i class="bi bi-telephone"></i></a>` : '';
+
           const correo = medico.email ? `<a href="mailto:${medico.email}" data-bs-toggle="tooltip" title="Enviar correo electrónico"><i class="bi bi-envelope"></i></a>` : '';
 
           const clinica = medico.clinica || '';
