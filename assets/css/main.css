@@ -1072,6 +1072,57 @@ section,
 }
 
 /*--------------------------------------------------------------
+# Presencia Internacional
+--------------------------------------------------------------*/
+
+/* Presencia Internacional - Ajustes visuales */
+#presencia .icon-box {
+  background: #f9f9f9;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+#presencia .icon-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+#presencia .icon-box .icon img {
+  width: 64px;
+  height: auto;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+#presencia .icon-box h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+#presencia .icon-box p {
+  font-size: 0.95rem;
+  color: #444;
+}
+#presencia .icon-box:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+#presencia .row > div:nth-child(2) .icon-box {
+  border: 2px solid var(--accent-color);
+  background-color: color-mix(in srgb, var(--accent-color), transparent 95%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+
+
+
+
+/*--------------------------------------------------------------
 # Stats Section
 --------------------------------------------------------------*/
 .stats i {
@@ -1834,5 +1885,36 @@ section,
   font-size: 0.85rem;
   color: #007bff;
 }
+
+/* ==== Ajustes responsive para móviles ==== */
+@media (max-width: 576px) {
+  .team-member .member-info {
+    font-size: 14px;
+  }
+  .hero .welcome h2 {
+    font-size: 1.4rem;
+  }
+  .hero .welcome p {
+    font-size: 0.95rem;
+  }
+  .team-member .member-info .social a {
+    font-size: 1rem;
+  }
+  .stats .stats-item p {
+    font-size: 0.9rem;
+  }
+}
+
+#paises-container img.pais-bandera {
+  border: 2px solid transparent;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+#paises-container img.pais-bandera:hover {
+  border-color: #007bff;
+  transform: scale(1.05);
+}
+
+
 
 }
