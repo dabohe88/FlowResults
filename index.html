@@ -896,7 +896,7 @@ document.addEventListener('DOMContentLoaded', () => {
                  </ul>` : '';
 
             const clinicaTexto = medico.clinica
-              ? `<p><span class="fw-bold">Centro médico:</span> ${medico.clinica.trim().replace(/\.*\s*$/, '')}.</p>`
+              ? `<p><strong>Centro médico:</strong> ${medico.clinica.trim().replace(/\.*\s*$/, '')}.</p>`
               : '';
 
             const imgSrc = `assets/img/doctors/${medico.imagen}`;
@@ -963,6 +963,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 </script>
+
 
 <script>
 document.getElementById("form-diagnostico-medico").addEventListener("submit", function(e) {
