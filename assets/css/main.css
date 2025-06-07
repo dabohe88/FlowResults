@@ -1055,6 +1055,7 @@ section,
   display: flex;
   align-items: flex-start;
   margin-top: 40px;
+  text-align: justify;
 }
 
 .about .content ul i {
@@ -1079,9 +1080,14 @@ section,
 
 .about .pulsating-play-btn {
   position: absolute;
-  left: calc(50% - 47px);
+  left: calc(50% - 47px); 
   top: calc(50% - 47px);
 }
+
+.about .content p {
+	text-align: justify;
+}
+
 
 /*--------------------------------------------------------------
 # Presencia Internacional
