@@ -1001,6 +1001,14 @@ section,
   color: var(--accent-color);
 }
 
+.hero .content .why-box h3 {
+  text-align: center;
+}
+
+.hero .content .why-box p {
+  text-align: justify;
+}
+
 .hero .content .icon-box {
   text-align: center;
   border-radius: 10px;
@@ -1025,6 +1033,10 @@ section,
   font-size: 15px;
   color: color-mix(in srgb, var(--default-color), transparent 30%);
 }
+
+
+
+
 
 /*--------------------------------------------------------------
 # About Section
