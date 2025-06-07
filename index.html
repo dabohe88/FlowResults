@@ -51,7 +51,7 @@
 <div class="topbar d-flex align-items-center">
 <div class="container d-flex justify-content-center justify-content-md-between">
 <div class="contact-info d-flex align-items-center">
-<i class="bi bi-envelope d-flex align-items-center"><a href="mailto:administracion@flowresults.com">info@flowresults.com</a></i>
+<i class="bi bi-envelope d-flex align-items-center"><a href="mailto:administracion@flowresults.com">administracion@flowresults.com</a></i>
 <i class="bi bi-phone d-flex align-items-center ms-4"><span>+506 7279 2629</span></i>
 </div>
 <div class="social-links d-none d-md-flex align-items-center">
@@ -629,7 +629,7 @@ Médicos aliados, ya forman parte de nuestra red en crecimiento.</p>
 <div class="faq-item faq-active">
 <h3>¿Qué tipo de médicos trabajan con Flow Results?</h3>
 <div class="faq-content">
-<p>Trabajamos con especialistas de todas la áreas, adaptamos nuestras estrategias a cada rama médica.</p>
+<p>rabajamos con especialistas de todas la áreas, y adaptamos nuestras estrategias a cada rama médica.</p>
 </div>
 <i class="faq-toggle bi bi-chevron-right"></i>
 </div>
@@ -660,7 +660,7 @@ Médicos aliados, ya forman parte de nuestra red en crecimiento.</p>
 <div class="faq-item">
 <h3>¿Puedo contratar solo algunos servicios y no todo el paquete?</h3>
 <div class="faq-content">
-<p>Sí, nuestros servicios son personalizables. Puedes contratar solo lo que necesites: diseño web, campañas, branding, etc.</p>
+<p>Sí, nuestros servicios son personalizados. Puedes contratar solo lo que necesites: diseño web, campañas, branding, etc.</p>
 </div>
 <i class="faq-toggle bi bi-chevron-right"></i>
 </div>
@@ -677,15 +677,6 @@ Médicos aliados, ya forman parte de nuestra red en crecimiento.</p>
 
 <!-- End Faq item-->
 
-<div class="faq-item">
-<h3>¿Cómo empiezo a trabajar con ustedes?</h3>
-<div class="faq-content">
-<p>Enim ea facilis quaerat voluptas quidem et dolorem. Quis et consequatur non sed in suscipit sequi. Distinctio ipsam dolore et.</p>
-</div>
-<i class="faq-toggle bi bi-chevron-right"></i>
-</div>
-
-<!-- End Faq item-->
 
 </div>
 </div><!-- End Faq Column-->
@@ -699,7 +690,7 @@ Médicos aliados, ya forman parte de nuestra red en crecimiento.</p>
 
   <!-- Section Title -->
   <div class="container section-title" data-aos="fade-up">
-    <h2>Contacto para Médicos</h2>
+    <h2>Conecta con Flow Results</h2>
     <p>Si deseas formar parte del portafolio de Flow Results, por favor completa el siguiente formulario. Nos pondremos en contacto contigo lo antes posible.</p>
   </div><!-- End Section Title -->
 
@@ -800,7 +791,7 @@ Médicos aliados, ya forman parte de nuestra red en crecimiento.</p>
             <img src="assets/img/logo.png" alt="">
             <span>Flow Results</span>
           </a>
-          <p>Agencia especializada en marketing médico. Ayudamos a doctores y clínicas a escalar su presencia y conectar con más pacientes.</p>
+          <p>Agencia especializada en marketing médico. Ayudamos a médicos y clínicas a escalar su presencia y conectar con más pacientes.</p>
           <div class="social-links d-flex mt-4">
   <a href="https://www.instagram.com/flowresults/" target="_blank"><i class="bi bi-instagram"></i></a>
   <a href="https://www.facebook.com/flowresults" target="_blank"><i class="bi bi-facebook"></i></a>
@@ -814,10 +805,11 @@ Médicos aliados, ya forman parte de nuestra red en crecimiento.</p>
           <h4>Accesos</h4>
           <ul>
             <li><i class="bi bi-chevron-right"></i> <a href="#about">Nuestra Historia</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#presencia">Sedes</a></li>
             <li><i class="bi bi-chevron-right"></i> <a href="#services">Servicios</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#portfolio">Casos de Éxito</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#departments">Directorio</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#contact">Contacto</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#departments">Directorio Médico</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#testimonials">Testimonios</a></li>
+			<li><i class="bi bi-chevron-right"></i> <a href="#faq">Preguntas Frecuentes</a></li>
           </ul>
         </div>
 
@@ -827,8 +819,8 @@ Médicos aliados, ya forman parte de nuestra red en crecimiento.</p>
           <p>
             9 Norte Wrkspace<br>
             San José, Costa Rica<br><br>
-            <strong>WhatsApp:</strong> +506 7279 2629<br>
-            <strong>Email:</strong> contacto@flowresults.com<br>
+            <strong>WhatsApp:</strong> https://wa.me/+50672792629/?text=urlencodedtext<br>
+            <strong>Email:</strong> administración@flowresults.com<br>
           </p>
         </div>
 
@@ -876,16 +868,14 @@ document.addEventListener('DOMContentLoaded', () => {
         let first = true;
 
         for (const area in data) {
-          // Filtrar médicos por país
           const medicosFiltrados = data[area].filter(medico =>
             paisSeleccionado === 'TODOS' || medico.pais_codigo === paisSeleccionado
           );
 
-          if (medicosFiltrados.length === 0) continue; // No mostrar área sin médicos válidos
+          if (medicosFiltrados.length === 0) continue;
 
           const safeId = 'tab-' + area.toLowerCase().replace(/\s+/g, '-').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
-          // Crear pestaña
           const tab = document.createElement('li');
           tab.classList.add('nav-item');
           tab.innerHTML = `
@@ -894,13 +884,21 @@ document.addEventListener('DOMContentLoaded', () => {
             </a>`;
           tabList.appendChild(tab);
 
-          // Crear contenido
           const pane = document.createElement('div');
           pane.className = `tab-pane ${first ? 'active show' : ''}`;
           pane.id = safeId;
 
           medicosFiltrados.forEach(medico => {
-            const especialidades = medico.especialidades.join(', ');
+            const especialidades = medico.especialidades.length > 0
+              ? `<p class="fw-bold mb-1">Especialidades:</p>
+                 <ul class="especialidades-list">
+                   ${medico.especialidades.map(proc => `<li>${proc.trim().replace(/\.$/, '')}.</li>`).join('')}
+                 </ul>` : '';
+
+            const clinicaTexto = medico.clinica
+              ? `<p><span class="fw-bold">Centro médico:</span> ${medico.clinica.trim().replace(/\.*\s*$/, '')}.</p>`
+              : '';
+
             const imgSrc = `assets/img/doctors/${medico.imagen}`;
             const banderaSrc = medico.bandera || '';
             const rawTel = medico.contacto || '';
@@ -910,8 +908,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const procedimientos = medico.procedimientos.length > 0
               ? `<p class="fw-bold mb-1">Procedimientos:</p>
                  <ul class="procedimientos-list">
-                   ${medico.procedimientos.map(proc => `<li>${proc}</li>`).join('')}
+                   ${medico.procedimientos.map(proc => `<li>${proc.trim().replace(/\.$/, '')}.</li>`).join('')}
                  </ul>` : '';
+
             const enlaceCita = medico.enlace_cita
               ? `<div class="mt-2">
                    <a href="${medico.enlace_cita}" target="_blank" class="btn btn-outline-primary btn-sm" data-bs-toggle="tooltip" title="Ir al sitio del médico">
@@ -930,7 +929,7 @@ document.addEventListener('DOMContentLoaded', () => {
                   <h4>${medico.nombre}</h4>
                   <span>${especialidades}</span>
                   ${ubicacion}
-                  <p>${medico.clinica}</p>
+                  ${clinicaTexto}
                   ${procedimientos}
                   <div class="social mt-2">
                     ${correo}
@@ -947,15 +946,12 @@ document.addEventListener('DOMContentLoaded', () => {
           first = false;
         }
 
-        // Tooltips
         const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
         tooltipTriggerList.forEach(el => new bootstrap.Tooltip(el));
       }
 
-      // Render inicial
       render('TODOS');
 
-      // Filtro por país
       filtroPais.addEventListener('change', () => {
         render(filtroPais.value);
       });
@@ -1133,18 +1129,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <div class="form-check"><input required class="form-check-input" type="checkbox" name="canales[]" value="Ninguno" id="can6"><label class="form-check-label" for="can6">Ninguno</label></div>
   </div>
 
-  <!-- 7. Gestión de redes -->
-  <div class="mb-4">
-    <label class="form-label fw-bold">7. ¿Desea que Flow gestione sus redes? <span class="text-danger">*</span></label>
-    <select class="form-select" name="gestion_redes" required>
-      <option value="" disabled selected>Seleccione una opción</option>
-      <option>Deseo que Flow lo gestione</option>
-      <option>Quiero aprender con guía</option>
-      <option>No me interesa trabajar redes sociales</option>
-    </select>
-  </div>
-
-  <!-- 8. Datos de contacto -->
+  <!-- 7. Datos de contacto -->
   <hr class="my-4">
   <h5 class="fw-bold">8. Datos de contacto</h5>
   <div class="row g-4 mb-5">

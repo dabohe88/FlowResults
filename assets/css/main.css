@@ -1897,6 +1897,17 @@ section,
   font-size: 0.85rem;
   color: #007bff;
 }
+}
+
+.procedimientos-list li::after {
+  content: ".";
+}
+
+.no-line {
+  border: none !important;
+  margin-bottom: 0.5rem;
+}
+
 
 /* ==== Ajustes responsive para móviles ==== */
 @media (max-width: 576px) {
