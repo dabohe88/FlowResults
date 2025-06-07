@@ -98,7 +98,7 @@
 <div class="container position-relative">
 <div class="welcome position-relative" data-aos="fade-down" data-aos-delay="100">
 <h2>La agencia de marketing médico </h2>
-<h2>elegida por los mejores cirujanos.</h2>
+<h2>elegida por los mejores cirujanos.</h2><br>
 <p>Descubra nuestro Programa de Aceleración de Clínicas </p>
 <p>y conecte con más pacientes para aumentar sus ventas.</p>
 </div><!-- End Welcome -->
@@ -190,7 +190,7 @@
   Flow Results nace con un propósito claro: transformar la manera en que los profesionales de la salud se posicionan digitalmente. 
 </p>
 <ul>
-  <li><i class="bi bi-bullseye"></i> Nuestra misión: ayudar a médicos a atraer pacientes de forma ética y efectiva.</li>
+  <li><i class="bi bi-bullseye"></i> Nuestra misión: ayudar a médicos atrayendo pacientes de forma ética y efectiva.</li>
   <li><i class="bi bi-eye"></i> Nuestra visión: convertirnos en la agencia líder en marketing médico en Latinoamérica.</li>
   <li><i class="bi bi-people-fill"></i> Nuestro equipo está compuesto por expertos en branding, diseño, publicidad y atención al cliente.</li>
 </ul>
@@ -321,7 +321,7 @@ Médicos aliados, ya forman parte de nuestra red en crecimiento.</p>
     
     <div class="section-title">
       <h2>Directorio Médico</h2>
-      <p>Conozca a nuestros especialistas, según su especialidad médica.</p>
+      <p>Explore a nuestros médicos según su especialidad.</p>
     </div>
 
     <div class="row">
@@ -613,7 +613,7 @@ Médicos aliados, ya forman parte de nuestra red en crecimiento.</p>
   </div>
 </section>
 
-<!-- /Testimonials Section -->
+<!-- /End Testimonials Section -->
 
 <!-- Faq Section -->
 <section class="faq section light-background" id="faq">
@@ -629,7 +629,7 @@ Médicos aliados, ya forman parte de nuestra red en crecimiento.</p>
 <div class="faq-item faq-active">
 <h3>¿Qué tipo de médicos trabajan con Flow Results?</h3>
 <div class="faq-content">
-<p>rabajamos con especialistas de todas la áreas, y adaptamos nuestras estrategias a cada rama médica.</p>
+<p>Trabajamos con especialistas de todas la áreas, y adaptamos nuestras estrategias a cada rama médica.</p>
 </div>
 <i class="faq-toggle bi bi-chevron-right"></i>
 </div>
@@ -820,7 +820,8 @@ Médicos aliados, ya forman parte de nuestra red en crecimiento.</p>
             9 Norte Wrkspace<br>
             San José, Costa Rica<br><br>
 			<a href="https://wa.me/+50672792629" target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp"></i> WhatsApp</a><br>
-			<i class="bi bi-envelope d-flex align-items-center"><a href="mailto:administracion@flowresults.com">administracion@flowresults.com</a></i>
+			<i class="bi bi-envelope me-2"></i><a href="mailto:administracion@flowresults.com">administracion@flowresults.com</a>
+
             
           </p>
         </div>
@@ -928,9 +929,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="pic"><img src="${imgSrc}" class="img-fluid" alt="${medico.nombre}" loading="lazy"></div>
                 <div class="member-info">
                   <h4>${medico.nombre}</h4>
-                  <span>${especialidades}</span>
-                  ${ubicacion}
-                  ${clinicaTexto}
+				  ${ubicacion}
+				  ${clinicaTexto}
+				  <span></span>
+                  ${especialidades}
                   ${procedimientos}
                   <div class="social mt-2">
                     ${correo}
